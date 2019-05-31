@@ -1,0 +1,4 @@
+1. Create a folder with the first letter of your first name and then the rest of your last name (see example below):
+Full Name: John Appleseed
+Folder Name: jappleseed
+2. Place your output in your folder
