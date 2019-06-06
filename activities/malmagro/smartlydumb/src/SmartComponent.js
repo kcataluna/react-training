@@ -8,7 +8,7 @@ class SmartComponent extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            buttonName: "Click Me"
+            buttonName: this.props.buttonText
         }
     }
 
@@ -22,12 +22,9 @@ class SmartComponent extends React.Component{
         )
     }
 
-    buttonClicked = () =>{
-        this.setState({buttonClickState:this.state.buttonClickState=="0"?"1":"0"})
-    }
-
     onTextChange = (e) =>{
-        this.setState({"buttonName":e.target.value})
+        const text = e.target.value == ""?this.props.buttonText:e.target.value
+        this.setState({"buttonName":text})
     }
 }
 
