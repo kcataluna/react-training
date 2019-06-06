@@ -1,54 +1,38 @@
 import React from "react";
 import "./App.css";
-import HelloWorld from "./HelloWorld";
-import Button from "./Buttons";
-import Side from "./Side";
-import Ending from "./Ending";
+import Form1 from "./Form1";
+import Form2 from "./Form2";
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      side: null,
-      gif: null
+      inputText: "",
+      textArea: "",
+      checkBox: false,
+      radioButton: "1",
+      fileChosen: ""
     };
-    this.showGood = this.showGood.bind(this);
-    this.showBad = this.showBad.bind(this);
+    this.elementListener = this.elementListener.bind(this);
   }
 
-  showGood() {
-    const side =
-      "Kobe is a very handsome man. Girls would do anything to date him but he prefers not to because he's a good guy and a wise man. The Wisest man the world has ever known. He always say never give up on things you love, even though its hard.";
+  elementListener(key, value) {
     this.setState({
-      side: side,
-      gif: "https://media.giphy.com/media/elPiadNl05XWg/giphy.gif"
+      [key]: value
     });
-  }
-
-  showBad() {
-    const side = "Nope, he doesn't have one. Sorry to disappoint you.";
-    this.setState({
-      side: side,
-      gif: "https://media.giphy.com/media/VGDF7TITgLm2i5Xfeu/giphy.gif"
-    });
+    console.log(this.state);
   }
 
   render() {
     return (
       <div className="App">
         <div>
-          <HelloWorld />
+          <Form1
+            elementListener={this.elementListener}
+            imageUrl={this.state.fileChosen}
+          />
         </div>
         <div>
-          <Button definition={"Good side of Kobe"} onClick={this.showGood} />
-        </div>
-        <div>
-          <Button definition={"Bad side of Kobe"} onClick={this.showBad} />
-        </div>
-        <div>
-          <Side side={this.state.side} gif={this.state.gif} />
-        </div>
-        <div>
-          <Ending />
+          <Form2 {...this.state} />
         </div>
       </div>
     );
