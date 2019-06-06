@@ -1,15 +1,19 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import Header from './Header.js';
+// const Message = () => <p>Hello World, I am Chienih Louise Bunao</p> // component with no properties.
+const Message = (props) => <p>Hello World,I am {props.name}</p>
 function App() {
   return (
     <div className="App">
+      <Header/>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
+        {/* <p>
           Hello World, I am Chienih Louise Bunao
-        </p>
+        </p> */}
+        <Message name="Chienih Louise Bunao"/>
         {/* <a
           className="App-link"
           href="https://reactjs.org"
