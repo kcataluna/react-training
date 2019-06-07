@@ -1,11 +1,10 @@
 {
-  "name": "helloworld",
+  "name": "hello-world",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-gif-player": "^0.4.2",
     "react-scripts": "3.0.1"
   },
   "scripts": {
