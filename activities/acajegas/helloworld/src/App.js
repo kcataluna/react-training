@@ -3,6 +3,8 @@ import logo from './tenor.gif';
 import './App.css';
 import Header from './header.js';
 
+const Greeting = () => <h1>Hello People!</h1>;
+
 function App() {
   return (
     <div className="App">
@@ -11,7 +13,7 @@ function App() {
         <p>
           Ang Pambansang Ibon ng Pilipinas!
         </p>
-        <Header />
+        <Greeting />
       </header>
     </div>
   );
