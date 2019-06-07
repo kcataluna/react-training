@@ -5,19 +5,33 @@ class Form1 extends React.Component {
     this.props.elementListener(key, value);
   }
 
+  imageListener(e){
+    var file = e.target.files[0];
+    var key = e.target.name;
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+  
+     reader.onloadend = function (e) {
+        this.props.elementListener(key, [reader.result]);
+      }.bind(this);
+
+  }
+
   render() {
+    const imageStyle = {
+      height: '100px',
+      width: '100px'
+    };
     return (
       <Container className="App">
         <h2>Form 1</h2>
         <Form className="form">
           <Col>
             <FormGroup>
-              <Label>Email</Label>
+              <Label>Input</Label>
               <Input
-                type="email"
+                type="input"
                 name="inputText"
-                id="exampleEmail"
-                placeholder="myemail@email.com"
                 onChange={e =>
                   this.elementListener(e.target.name, e.target.value)
                 }
@@ -48,7 +62,7 @@ class Form1 extends React.Component {
                     this.elementListener(e.target.name, e.target.value)
                   }
                 />{" "}
-                batig nawng
+             Gwapa
               </Label>
             </FormGroup>
             <FormGroup check>
@@ -61,7 +75,7 @@ class Form1 extends React.Component {
                     this.elementListener(e.target.name, e.target.value)
                   }
                 />{" "}
-                gwapo
+               Gwapo
               </Label>
             </FormGroup>
           </Col>
@@ -81,18 +95,17 @@ class Form1 extends React.Component {
           </Col>
           <Col>
             <FormGroup>
-              <Label for="exampleFile">File</Label>
               <Input
                 type="file"
                 name="fileChosen"
                 id="exampleFile"
                 onChange={e =>
-                  this.elementListener(e.target.name, e.target.value)
+                  this.imageListener(e)
                 }
               />
             </FormGroup>
             <FormGroup>
-              <img src={this.props.imageUrl} />
+              <img src={this.props.imageUrl} style={imageStyle} alt=""/>
             </FormGroup>
           </Col>
         </Form>
