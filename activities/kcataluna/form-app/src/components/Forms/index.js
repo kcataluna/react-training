@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Input from './Input';
-import Output from './Output';
+import Input from '../../containers/Input';
+import Output from '../../containers/Output';
 
 class Forms extends React.Component {
     render() {
