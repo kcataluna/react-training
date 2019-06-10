@@ -3,7 +3,11 @@ import { connect } from 'react-redux';
 import { setCredentials } from '../actions';
 
 const Input = ({ dispatch }) => {
-    let id, name, birthdate, address;
+    let id, name, birthdate, address, picture;
+    const dispatcher = credentials => {
+        dispatch(setCredentials(credentials));
+        id.value = name.value = birthdate.value = address.value = '';
+    }
     return (
         <div className="card mb-3">
             <h5 className="card-header">Input</h5>
@@ -12,17 +16,25 @@ const Input = ({ dispatch }) => {
                     e => {
                         e.preventDefault();
 
-                        dispatch(setCredentials({
-                            id: id.value,
-                            name: name.value,
-                            birthdate: birthdate.value,
-                            address: address.value
-                        }));
-
-                        id.value = '';
-                        name.value = '';
-                        birthdate.value = '';
-                        address.value = '';
+                        let reader = new FileReader(), file = picture.files[0],
+                            obj = {
+                                id: id.value,
+                                name: name.value,
+                                birthdate: birthdate.value,
+                                address: address.value,
+                                picture: reader.result
+                            };
+                        
+                        try {
+                            reader.onloadend = () => {
+                                obj.picture = reader.result;
+                                dispatcher(obj);
+                            }
+                            reader.readAsDataURL(file);
+                        } catch(error) {
+                            obj.picture = null;
+                            dispatcher(obj);
+                        }
                     }
                 }>
                     <div className="form-group">
@@ -42,7 +54,7 @@ const Input = ({ dispatch }) => {
                         <input type="text" className="form-control" id="inputAddress" placeholder="" ref={input => address = input} />
                     </div>
                     <div className="custom-file">
-                        <input type="file" className="custom-file-input" id="filePicture" />
+                        <input type="file" className="custom-file-input" id="filePicture" ref={input => picture = input} />
                         <label className="custom-file-label" htmlFor="filePicture">Choose file</label>
                     </div>
                     <button className="btn btn-primary btn-block mt-3 float-right" type="submit">Submit</button>
