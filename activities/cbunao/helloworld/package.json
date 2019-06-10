@@ -4,12 +4,14 @@
   "private": true,
   "dependencies": {
     "algoliasearch": "^3.33.0",
+    "dom": "0.0.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-instantsearch": "^5.7.0",
     "react-instantsearch-core": "^5.7.0",
     "react-instantsearch-dom": "^5.7.0",
     "react-instantsearch-native": "^5.7.0",
+    "react-router": "^5.0.1",
     "react-scripts": "3.0.1"
   },
   "scripts": {
