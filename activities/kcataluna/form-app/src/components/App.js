@@ -2,8 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import Clock from './Clock';
-import Forms from './Forms/';
+import Clock from '../components/Clock/';
+import Forms from '../components/Forms/';
 
 function App() {
     return (
