@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <div>
-          <h1><ReactLiveClock format={'hh:mm:ss'} ticking={true} timezone={'Asia/Manila' }/></h1>
+          <h1><ReactLiveClock format={'hh:mm:ss'} ticking={true} timezone={'Asia/Manila'}/></h1>
       </div>
       <Main/>
     </div>
