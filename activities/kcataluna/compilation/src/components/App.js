@@ -8,9 +8,9 @@ import routes from '../routes';
 
 import Navbar from './Navbar';
 
-import HelloWorld from './activity1/HelloWorld';
-import News from './activity2/News';
-import Forms from './activity3/Forms';
+import HelloWorld from './activity1';
+import News from './activity2';
+import Forms from './activity3';
 
 function App() {
     return (
