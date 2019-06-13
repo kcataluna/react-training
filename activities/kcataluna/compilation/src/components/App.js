@@ -17,7 +17,7 @@ function App() {
         <Router>
             <div className="App">
                 <Navbar />
-                <div className="container-fluid App-content">
+                <div className="App-content">
                     <Switch>
                         <Route path={routes.helloworld} component={HelloWorld} />
                         <Route path={routes.components} component={News} />
