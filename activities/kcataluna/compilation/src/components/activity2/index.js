@@ -8,7 +8,7 @@ import NewsAPI from './NewsAPI';
 class News extends React.Component {
     render = () => {
         return (
-            <div>
+            <div className="container-fluid">
                 <img src={logo} className="App-logo-sm mx-auto d-block" alt="logo" />
                 <NewsAPI {... request} />
             </div>
