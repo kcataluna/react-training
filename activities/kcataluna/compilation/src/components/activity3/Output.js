@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 class Output extends React.Component {
-    render = () => {console.log(this.props.id);
+    render = () => {
         let imageClass = this.props.picture ? 'img-fluid form-group' : 'd-none';
         return (
             <div className="card mb-3">
