@@ -1,4 +1,6 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {setID, setName, setBirthdate, setAddress, setPicture} from '../../actions';
 
 class Input extends React.Component {
     constructor() {
@@ -12,14 +14,43 @@ class Input extends React.Component {
         };
     }
     
-    handleChange = (e) => {}
+    handleChange = (e) => {
+        if(e.target.id === this.input.picture) {
+            let reader = new FileReader(), file = e.target.files[0];
+            try {
+                reader.onloadend = () => {
+                    this.props.setPicture(reader.result);
+                }
+                reader.readAsDataURL(file);
+            } catch (error) {
+                this.props.setPicture(null);
+            }
+            return;
+        } else {
+            switch(e.target.id) {
+                case this.input.id: 
+                    this.props.setID(e.target.value);
+                    break;
+                case this.input.name: 
+                    this.props.setName(e.target.value);
+                    break;
+                case this.input.birthdate: 
+                    this.props.setBirthdate(e.target.value);
+                    break;
+                case this.input.address: 
+                    this.props.setAddress(e.target.value);
+                    break;   
+                default: break;
+            }
+        }
+    }
 
     render = () => {
         return (
             <div className="card mb-3">
                 <h5 className="card-header">Input</h5>
                 <div className="card-body">
-                    <form action='javascript:void(0)'>
+                    <form action="javascript:void(0)">
                         <div className="form-group">
                             <label htmlFor="inputID">ID Number</label>
                             <input type="text" className="form-control" id={this.input.id} placeholder="" onChange={this.handleChange} />
@@ -47,4 +78,4 @@ class Input extends React.Component {
     }
 }
 
-export default Input;
+export default connect(null, {setID, setName, setBirthdate, setAddress, setPicture})(Input);

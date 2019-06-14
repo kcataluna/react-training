@@ -4,8 +4,15 @@ import logo from '../logo.svg';
 
 import Clock from './Clock';
 import Input from './Input';
+import Output from './Output';
+
+import bsCustomFileInput from 'bs-custom-file-input';
 
 class Forms extends React.Component {
+    componentDidMount = () => {
+        bsCustomFileInput.init();
+    }
+
     render = () => {
         return (
             <div className="container">
@@ -15,7 +22,9 @@ class Forms extends React.Component {
                     <div className="col-md">
                         <Input />
                     </div>
-                    <div className="col-md"></div>
+                    <div className="col-md">
+                        <Output />
+                    </div>
                 </div>
             </div>
         );
