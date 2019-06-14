@@ -1,16 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
+import {BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
+
 import './App.css';
+import './Navbar.css';
+
+import routes from '../routes';
+
+import Navbar from './Navbar';
+
+import HelloWorld from './activity1';
+import News from './activity2';
+import Forms from './activity3';
 
 function App() {
     return (
-        <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>Edit <code>src/App.js</code> and save to reload.</p>
-                <a className="App-link" href="javascript:void(0)">Learn React</a>
-            </header>
-        </div>
+        <Router>
+            <div className="App">
+                <Navbar />
+                <div className="App-content">
+                    <Switch>
+                        <Route path={routes.helloworld} component={HelloWorld} />
+                        <Route path={routes.components} component={News} />
+                        <Route path={routes.forms} component={Forms} />
+                        <Redirect to={routes.helloworld} />
+                    </Switch>
+                </div>
+            </div>
+        </Router>
     );
 }
 
