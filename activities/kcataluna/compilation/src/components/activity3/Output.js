@@ -8,7 +8,7 @@ class Output extends React.Component {
             <div className="card mb-3">
                 <h5 className="card-header">Output</h5>
                 <div className="card-body">
-                    <form action="javascript:void(0)">
+                    <form onSubmit={(e) => e.preventDefault()}>
                         <fieldset disabled>
                             <img src={this.props.picture} className={imageClass} alt="" />
                             <div className="form-group">

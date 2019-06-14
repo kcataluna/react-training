@@ -50,7 +50,7 @@ class Input extends React.Component {
             <div className="card mb-3">
                 <h5 className="card-header">Input</h5>
                 <div className="card-body">
-                    <form action="javascript:void(0)">
+                    <form onSubmit={(e) => e.preventDefault()}>
                         <div className="form-group">
                             <label htmlFor="inputID">ID Number</label>
                             <input type="text" className="form-control" id={this.input.id} placeholder="" onChange={this.handleChange} />
